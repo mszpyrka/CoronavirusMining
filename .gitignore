@@ -1,2 +1,5 @@
 credentials.py
 /env-twitter/*
+/.idea/*
+/__pycache__/*
+/twitter-data/*
