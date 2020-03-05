@@ -5,6 +5,44 @@ import json
 from time import sleep
 from datetime import datetime
 
+TWEET_METADATA = [
+    'created_at',
+    'text',
+    'id',
+    'coordinates',
+    'place',
+    'retweet_count',
+    'favourite_count',
+    'lang'
+]
+
+TWEET_NESTED_METADATA = {
+    'user': ['id', 'location', 'followers_count'],
+    'entities': ['hashtags']
+}
+
+
+def extract_tweet_data(raw_tweet):
+    """
+    Extracts only significant parts from tweet object.
+    """
+    tweet = json.loads(raw_tweet)
+    result = {}
+
+    for data_keyword in TWEET_METADATA:
+        result[data_keyword] = tweet.get(data_keyword, None)
+
+    for nested_keyword, nested_attributes in TWEET_NESTED_METADATA.items():
+        nested_value = {}
+        nested_object = tweet.get(nested_keyword, {})
+
+        for attribute in nested_attributes:
+            nested_value[attribute] = nested_object.get(attribute, None)
+
+        result[nested_keyword] = nested_value
+
+    return result
+
 
 class FileStorageListener(StreamListener):
 
@@ -25,8 +63,8 @@ class FileStorageListener(StreamListener):
         Appends new record to the buffer, saves whole buffer content into file if buffer size limit is exceeded.
         Additionally clears error backoff time.
         """
-        self.buffer.append(raw_data)
-        self.backoff_time = 0
+        processed_data = extract_tweet_data(raw_data)
+        self.buffer.append(processed_data)
 
         if len(self.buffer) >= self.chunk_size:
             self.save_chunk()
@@ -69,7 +107,7 @@ if __name__ == "__main__":
     listener = FileStorageListener(
         hashtags=hashtags,
         storage_filename='COVIDtweets',
-        storage_dir='./twitter-data/',
+        storage_dir='./data/twitter-clean/',
         chunk_size=10_000
     )
 
