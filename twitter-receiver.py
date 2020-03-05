@@ -12,7 +12,7 @@ TWEET_METADATA = [
     'coordinates',
     'place',
     'retweet_count',
-    'favourite_count',
+    'favorite_count',
     'lang'
 ]
 
