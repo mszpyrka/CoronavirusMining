@@ -4,6 +4,7 @@ import credentials
 import json
 from time import sleep
 from datetime import datetime
+import sys
 
 TWEET_METADATA = [
     'created_at',
@@ -46,10 +47,10 @@ def extract_tweet_data(raw_tweet):
 
 class FileStorageListener(StreamListener):
 
-    def __init__(self, hashtags, storage_filename, storage_dir, chunk_size=1_000):
+    def __init__(self, hashtags, storage_filename, storage_dir, chunk_size=1_000, starting_chunk=0):
         super().__init__()
         self.hashtags = hashtags
-        self.chunks_counter = 0
+        self.chunks_counter = starting_chunk
         self.chunk_size = chunk_size
 
         self.storage_filename = storage_filename
@@ -104,11 +105,17 @@ class FileStorageListener(StreamListener):
 
 if __name__ == "__main__":
     hashtags = ['coronavirus', 'covid19']
+
+    starting_chunk = 0
+    if len(sys.argv) > 1:
+        starting_chunk = int(sys.argv[1])
+
     listener = FileStorageListener(
         hashtags=hashtags,
         storage_filename='COVIDtweets',
         storage_dir='./data/twitter-clean/',
-        chunk_size=10_000
+        chunk_size=10_000,
+        starting_chunk=starting_chunk
     )
 
     auth = OAuthHandler(credentials.API_KEY, credentials.API_KEY_SECRET)
