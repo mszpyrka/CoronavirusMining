@@ -2,9 +2,11 @@ from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler, Stream
 import credentials
 import json
-from time import sleep
+from time import sleep, time
 from datetime import datetime
 import sys
+from http.client import IncompleteRead
+from urllib3.exceptions import ProtocolError, ReadTimeoutError
 
 TWEET_METADATA = [
     'created_at',
@@ -12,8 +14,6 @@ TWEET_METADATA = [
     'id',
     'coordinates',
     'place',
-    'retweet_count',
-    'favorite_count',
     'lang'
 ]
 
@@ -57,7 +57,6 @@ class FileStorageListener(StreamListener):
         self.storage_dir = storage_dir
 
         self.buffer = []
-        self.backoff_time = 0
 
     def on_data(self, raw_data):
         """
@@ -69,8 +68,6 @@ class FileStorageListener(StreamListener):
 
         if len(self.buffer) >= self.chunk_size:
             self.save_chunk()
-            self.chunks_counter += 1
-            self.buffer = []
 
         return True
 
@@ -91,13 +88,42 @@ class FileStorageListener(StreamListener):
         with open(new_file_path, 'w') as f:
             json.dump(data, f)
 
+        self.chunks_counter += 1
+        self.buffer = []
+
     def on_error(self, status_code):
         print(datetime.now())
         print(status_code)
-        # self.backoff()
         return True
 
-    def backoff(self):
+
+class ListenerSupervisor:
+    """
+    Supervises listener's work, performs exponential backoff restarts in case of unexpected errors.
+    """
+    def __init__(self, stream, listener, hashtags):
+        self.stream = stream
+        self.listener = listener
+        self.hashtags = hashtags
+
+        self.last_error_timestamp = time()
+        self.backoff_time = 0
+
+    def run(self):
+        while True:
+            try:
+                self.stream.filter(track=hashtags)
+
+            except (IncompleteRead, ProtocolError, ReadTimeoutError):
+                self.listener.save_chunk()
+                self.backoff_sleep()
+
+    def backoff_sleep(self):
+        current_time = time()
+        time_delta = current_time - self.last_error_timestamp
+        if time_delta > 3 * self.backoff_time:
+            self.backoff_time = 0
+
         print(f'{datetime.now()} ====> starting backoff sleep for {self.backoff_time} seconds')
         sleep(self.backoff_time)
         self.backoff_time = max(1, self.backoff_time * 2)
@@ -122,4 +148,5 @@ if __name__ == "__main__":
     auth.set_access_token(credentials.ACCESS_TOKEN, credentials.ACCESS_TOKEN_SECRET)
 
     stream = Stream(auth, listener)
-    stream.filter(track=hashtags)
+    supervisor = ListenerSupervisor(stream, listener, hashtags)
+    supervisor.run()
