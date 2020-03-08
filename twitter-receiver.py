@@ -7,6 +7,7 @@ from datetime import datetime
 import sys
 from http.client import IncompleteRead
 from urllib3.exceptions import ProtocolError, ReadTimeoutError
+from requests.exceptions import ConnectionError
 
 TWEET_METADATA = [
     'created_at',
@@ -114,7 +115,7 @@ class ListenerSupervisor:
             try:
                 self.stream.filter(track=hashtags)
 
-            except (IncompleteRead, ProtocolError, ReadTimeoutError):
+            except (IncompleteRead, ProtocolError, ReadTimeoutError, ConnectionError):
                 self.listener.save_chunk()
                 self.backoff_sleep()
 
