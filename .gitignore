@@ -3,3 +3,4 @@ credentials.py
 /.idea/*
 /__pycache__/*
 /data/*
+client_secrets.json
