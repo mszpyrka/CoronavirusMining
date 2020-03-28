@@ -1,23 +1,23 @@
 import json
 import datetime
+import os
 
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
 
-import geopy.geocoders
-from geopy.geocoders import Nominatim
-from geopy.extra.rate_limiter import RateLimiter
 
-geopy.geocoders.options.default_timeout = 10
-
-
-def process_chunk(chunk_id, geolocator):
-    with open('tweets.json') as json_file:
-        tweets_data = json.load(json_file)
-        f = open('resutls_geocode.txt', 'w+')
+def process_chunk(chunk):
+    chunk.GetContentFile('chunk.json')
+    with open('chunk.json', 'r') as chunk_json:
+        tweets_data = json.load(chunk_json)
         for tweet in tweets_data['records']:
-            if tweet['user']['location'] is not None:
-                f.write("%s -> %s \n" % (tweet['user']['location'], geolocator.geocode(tweet['user']['location'])))
+            print(tweet)
+
+
+def check_main_catalog():
+    fileList = drive.ListFile({'q': "'1gCy3UlgGHDPA1CW5-mNh8zr5SO7-_gI3' in parents and trashed=false"}).GetList()
+    for file in fileList:
+        print("%s %s" % (file['title'], file['id']))
 
 
 if __name__ == "__main__":
@@ -25,17 +25,16 @@ if __name__ == "__main__":
     gauth.LocalWebserverAuth()
     drive = GoogleDrive(gauth)
 
-    geolocator = Nominatim(user_agent="data-analizer2")
-    #geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1, error_wait_seconds=1, max_retries=5)
+    #check_main_catalog()
+    catalog_title = 'serwer-07.03-14.03'
+    catalog_id = '1AmXEexUm_LC_52jRZZXUwqnDc34hd4cQ'
+    fileList = drive.ListFile({'q': "'%s' in parents and trashed=false" % catalog_id}).GetList()
+    fileList.reverse()
 
-    fileList = drive.ListFile({'q': "'1gCy3UlgGHDPA1CW5-mNh8zr5SO7-_gI3' in parents and trashed=false"}).GetList()
-    for file in fileList:
-        innerFileList = drive.ListFile({'q': "'%s' in parents and trashed=false" % file['id']}).GetList()
-        for f in innerFileList:
-            if f['title'] == 'COVIDtweets-0000.json':
-                f.GetContentFile('tweets.json')
-                start = datetime.datetime.now()
-                process_chunk(f['title'], geolocator)
-                duration = datetime.datetime.now() - start
-                print(duration)
+    output_dir_path = os.path.join(os.getcwd(), r"output/%s" % catalog_title)
+    if not os.path.exists(output_dir_path):
+        os.makedirs(output_dir_path)
 
+    for chunk in fileList:
+        print("Processing: %s %s" % (chunk['title'], chunk['id']))
+        process_chunk(chunk)
