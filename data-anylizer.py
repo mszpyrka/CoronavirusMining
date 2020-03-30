@@ -6,6 +6,8 @@ import pycountry as pc
 import ast
 import re
 import sys
+from multiprocessing import Process
+import gc
 
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
@@ -60,6 +62,10 @@ def prepare_data(tweet, cc):
     }
 
 
+def download_data(chunk):
+    chunk.GetContentFile('chunk.json')
+
+
 class ChunkAnalizer:
     def __init__(self, output_dir_path):
         self.output_dir_path = output_dir_path
@@ -67,7 +73,7 @@ class ChunkAnalizer:
         self.records = []
         self.len = 0
         self.all = 0
-        self.max_size = 200000
+        self.max_size = 100000
         self.countrylookup = CountryLookup('./analysis/countries-translation/global_names.csv')
 
     def save_data(self):
@@ -101,7 +107,6 @@ class ChunkAnalizer:
             self.store_data(prepare_data(tweet, cc))
 
     def process_chunk(self, chunk):
-        chunk.GetContentFile('chunk.json')
         with open('chunk.json', 'r') as chunk_json:
             tweets_data = json.load(chunk_json)
             for tweet in tweets_data['records']:
@@ -138,6 +143,9 @@ if __name__ == "__main__":
 
     for chunk in fileList:
         print("Processing: %s %s" % (chunk['title'], chunk['id']))
+        p = Process(target=download_data, args=(chunk, ))
+        p.start()
+        p.join()
         chunkanalizer.process_chunk(chunk)
 
     chunkanalizer.save_data()
