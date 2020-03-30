@@ -4,5 +4,7 @@ credentials.py
 /__pycache__/*
 /data/*
 client_secrets.json
-/output
-chunk.json
+/processing/client_secrets.json
+/processing/chunk.json
+/processing/output
+/processing/input
