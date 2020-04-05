@@ -7,7 +7,7 @@ import ast
 import re
 import sys
 from multiprocessing import Process
-import gc
+import shutil
 
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
@@ -74,7 +74,7 @@ class ChunkAnalizer:
         self.len = 0
         self.all = 0
         self.max_size = 100000
-        self.countrylookup = CountryLookup('./analysis/countries-translation/global_names.csv')
+        self.countrylookup = CountryLookup('../analysis/countries-translation/global_names.csv')
 
     def save_data(self):
         print("Save %s tweet from %s - %s" % (self.len, self.all, self.date))
@@ -125,8 +125,10 @@ if __name__ == "__main__":
     gauth.LocalWebserverAuth()
     drive = GoogleDrive(gauth)
 
-    catalog_title = 'serwer-07.03-14.03'
-    catalog_id = '1AmXEexUm_LC_52jRZZXUwqnDc34hd4cQ'
+    catalog_title = 'serwer-14.03-25.03'
+    catalog_id = '1W_4NC62LLRcBn5rTCxmZobtgzT07wssk'
+
+    shutil.rmtree('./output', ignore_errors=True)
 
     if len(sys.argv) > 2:
         catalog_title = sys.argv[1]
@@ -142,10 +144,15 @@ if __name__ == "__main__":
     chunkanalizer = ChunkAnalizer(output_dir_path)
 
     for chunk in fileList:
-        print("Processing: %s %s" % (chunk['title'], chunk['id']))
-        p = Process(target=download_data, args=(chunk, ))
-        p.start()
-        p.join()
+        downloaded = False
+        while not downloaded:
+            print("Processing: %s %s" % (chunk['title'], chunk['id']))
+            p = Process(target=download_data, args=(chunk, ))
+            p.start()
+            p.join()
+            if p.exitcode == 0:
+                downloaded = True
+
         chunkanalizer.process_chunk(chunk)
 
     chunkanalizer.save_data()
