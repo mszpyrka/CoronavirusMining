@@ -21,6 +21,7 @@ class CountryDict:
 
         self.country_dict = {k: [] for k in self.country_list}
         self.country_percent = {k: {} for k in self.country_list}
+        self.thresholds = [50, 25, 10, 5, 2, 1, 0]
 
     def clear(self):
         self.country_dict = defaultdict(list)
@@ -32,10 +33,9 @@ class CountryDict:
         for key in self.country_dict:
             country_max = self.country_dict[key][0]
             self.country_percent[key]['max'] = country_max
-            step = country_max/parts
-            threshold = country_max - step
+            step = 0
+            threshold = country_max * (self.thresholds[step] / 100)
             counter = 0
-            part_number = 1
             #print("Start threshold %s" % threshold)
             for fol_count in self.country_dict[key]:
                 processed = False
@@ -46,14 +46,14 @@ class CountryDict:
                         processed = True
                     else:
                         #print("Stored " + key + " " + str(1 - part_number/parts) + " " + filename)
-                        percent_step = (1 - part_number/parts) * 100
+                        percent_step = self.thresholds[step]
                         self.country_percent[key][str(percent_step) + '%+'] = counter
                         counter = 0
-                        part_number += 1
+                        step += 1
                         #print(part_number)
-                        threshold -= step
+                        threshold = country_max * (self.thresholds[step] / 100)
 
-            percent_step = (1 - part_number / parts) * 100
+            percent_step = self.thresholds[step]
             self.country_percent[key][str(percent_step) + '%+'] = counter
 
         with open(directory_out + '/' + filename[:-5] + '-percent.json', 'w') as fp:
