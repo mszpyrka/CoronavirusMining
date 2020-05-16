@@ -5,6 +5,7 @@ import json
 import glob
 import dateutil
 import datetime
+import bisect
 
 # ========================================================
 # UTILITY FUNCTIONS
@@ -38,8 +39,35 @@ def load_statistics(file):
         
     return stats
 
-def files_to_dataframe(files):
-    stats = [load_statistics(f) for f in files]
+def load_statistics_with_followers_restrictions(file, percentage_range=(0., 1.)):
+    
+    with open(file, 'r') as json_file:
+        data = json.load(json_file)
+        
+    result = {}
+        
+    for country, sorted_followers_list in data.items():
+        sorted_followers_list.reverse()
+        max_followers = sorted_followers_list[-1]
+        
+        lower_threshold = int(percentage_range[0] * max_followers)
+        upper_threshold = int(percentage_range[1] * max_followers)
+        
+        range_begin_index = bisect.bisect_left(sorted_followers_list, lower_threshold)
+        range_end_index = bisect.bisect_right(sorted_followers_list, upper_threshold)
+                
+        result[country] = range_end_index - range_begin_index
+        
+    return result
+
+def files_to_dataframe(files, followers_percentage_range=None):
+    
+    if followers_percentage_range is None:
+        stats = [load_statistics(f) for f in files]
+        
+    else:
+        stats = [load_statistics_with_followers_restrictions(f, followers_percentage_range) for f in files]
+        
     dates = [get_date_by_filename(f) for f in files]
     
     unique_dates = list(set(dates))
@@ -59,7 +87,7 @@ def files_to_dataframe(files):
     df_dict = {'Alpha2': countries}
     
     for date in unique_dates:
-        daily_stats = [merged_data[country][date] for country in countries]
+        daily_stats = [merged_data[country].get(date, 0) for country in countries]
         df_dict[date] = daily_stats
         
     df = pd.DataFrame.from_dict(df_dict)
@@ -68,9 +96,9 @@ def files_to_dataframe(files):
     return df
 
 class TwitterDataLoader:
-    def __init__(self, data_dir):
+    def __init__(self, data_dir, followers_percentage_range=None):
         files = sorted(glob.glob(data_dir + '*/*.json'))
-        self.df = files_to_dataframe(files)
+        self.df = files_to_dataframe(files, followers_percentage_range)
         
     def get_data(self, country_code, days=None):
         country_record = self.df.loc[country_code]
