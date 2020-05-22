@@ -8,7 +8,7 @@ import numpy as np
 from matplotlib import pyplot
 
 
-def plot_map_json(data, title, ax=None):
+def plot_map_json(data, title, ax=None, legend=True):
     world = geopandas.read_file(geopandas.datasets.get_path('naturalearth_lowres'))
     world['corr'] = [np.nan] * len(world.index)
 
@@ -23,7 +23,7 @@ def plot_map_json(data, title, ax=None):
             world.loc[world.name == 'Norway', 'corr'] = data[key]
 
     if ax:
-        world.plot('corr', ax=ax, legend="True")
+        world.plot('corr', ax=ax, legend=legend)
         ax.title.set_text(title)
     else:
         world.plot('corr', legend="True")
@@ -56,6 +56,18 @@ def plot_map_csv(data, column, ax=None, title=None):
         pyplot.title(vis_title)
 
 
+def process_series(data):
+    strings = data.split('\n')
+    x = []
+    y = []
+    for i in strings[:-1]:
+        tmp = i.split()
+        x.append(tmp[0])
+        y.append(float(tmp[1]))
+
+    res = pd.Series(y, index=x)
+    return res
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
@@ -76,17 +88,33 @@ if __name__ == "__main__":
         correlations = json.load(json_file)
 
     #fig, (ax1, ax2, ax3, ax4) = pyplot.subplots(nrows=4, sharex=True, sharey=True)
-    fig, (ax1, ax2) = pyplot.subplots(nrows=2, sharex=True, sharey=True)
-    plot_map_json(correlations_basic[countries.get(country_code).alpha2]['twitter_smooth'], 'corr_twitter', ax1)
-    plot_map_json(correlations[countries.get(country_code).alpha2]['twitter_smooth'], 'corr_twitter_followers', ax2)
-    plot_map_json(correlations[countries.get(country_code).alpha2]['who_conf_smooth'], 'corr_who_conf')
-    plot_map_json(correlations[countries.get(country_code).alpha2]['who_rec_smooth'], 'corr_who_rec')
-    plot_map_json(correlations[countries.get(country_code).alpha2]['who_deaths_smooth'], 'corr_who_deaths')
+    fig, a = pyplot.subplots(nrows=4, ncols=2)
+    plot_map_json(correlations_basic[countries.get(country_code).alpha2]['twitter_smooth'], 'corr_twitter', a[0][1])
+    #plot_map_json(correlations[countries.get(country_code).alpha2]['twitter_smooth'], 'corr_twitter_followers')
+    plot_map_json(correlations[countries.get(country_code).alpha2]['who_conf_smooth'], 'corr_who_conf', a[1][1])
+    plot_map_json(correlations[countries.get(country_code).alpha2]['who_rec_smooth'], 'corr_who_rec', a[2][1])
+    plot_map_json(correlations[countries.get(country_code).alpha2]['who_deaths_smooth'], 'corr_who_deaths', a[3][1])
 
-    data = pd.read_csv("../analysis/to_visualize.csv")
-    data_basic = pd.read_csv("../analysis/to_visualize-basic.csv")
+    data = pd.read_csv("../analysis/to_visualize.csv", index_col=0, parse_dates=True)
+    data_basic = pd.read_csv("../analysis/to_visualize-basic.csv", index_col=0)
+    series_list = ['twitter_raw', 'who_conf_smooth', 'who_rec_smooth', 'who_deaths_smooth']
+    code = "PL"
+    country_summary = data_basic.loc[code]
+    print(process_series(country_summary['twitter_raw']))
+    for i, series in enumerate(series_list):
+        a[i][0].plot(process_series(country_summary[series]))
+        a[i][0].set_title(series)
+        a[i][0].tick_params(axis='x', labelrotation=60)
 
-    fig, (ax1, ax2) = pyplot.subplots(nrows=2, sharex=True, sharey=True)
+    for i in range(3):
+        a[i][0].set_xticklabels([])
+        a[i][1].set_xticklabels([])
+
+    #fig.tight_layout(pad=0)
+
+    #print(country_summary['twitter_raw'])
+    #plt.plot(process_series(country_summary['twitter_raw']))
+    """fig, (ax1, ax2) = pyplot.subplots(nrows=2, sharex=True, sharey=True)
     plot_map_csv(data_basic, 'corr_twt_conf', ax1)
     plot_map_csv(data, 'corr_twt_conf', ax2, 'followers')
 
@@ -97,5 +125,6 @@ if __name__ == "__main__":
     fig, (ax1, ax2) = pyplot.subplots(nrows=2, sharex=True, sharey=True)
     plot_map_csv(data_basic, 'corr_twt_rec', ax1)
     plot_map_csv(data, 'corr_twt_rec', ax2, 'followers')
+    """
 
     plt.show()
