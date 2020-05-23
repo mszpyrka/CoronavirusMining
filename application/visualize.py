@@ -100,7 +100,7 @@ if __name__ == "__main__":
     data_basic = pd.read_csv("../analysis/to_visualize-basic.csv", index_col=0)
 
     series_list = ['twitter_raw', 'who_conf_smooth', 'who_rec_smooth', 'who_deaths_smooth']
-    code = "PL"
+    code = countries.get(country_code).alpha2
     country_summary = data_basic.loc[code]
     country_summary_foll = data.loc[code]
 
@@ -146,7 +146,7 @@ if __name__ == "__main__":
     plot_map_csv(data_basic, 'corr_twt_rec', a[2][0])
     plot_map_csv(data, 'corr_twt_rec', a[2][1], 'followers')
 
-    fig3.suptitle('basic and followers corr_twt_conf, corr_twt_deaths, corr_twt_rec for %s' % code, fontsize=16)
+    fig3.suptitle('basic and followers corr_twt_conf, corr_twt_deaths, corr_twt_rec', fontsize=16)
     plt.show()
     fig1.savefig('output/fig1.png')
     fig2.savefig('output/fig2.png')
