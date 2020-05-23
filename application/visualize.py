@@ -34,8 +34,8 @@ def plot_map_csv(data, column, ax=None, title=None):
     world = geopandas.read_file(geopandas.datasets.get_path('naturalearth_lowres'))
     world[column] = [np.nan] * len(world.index)
 
-    for _, row in data.iterrows():
-        alpha_3 = countries.get(row['alpha_2']).alpha3
+    for key, row in data.iterrows():
+        alpha_3 = countries.get(key).alpha3
         world.loc[world.iso_a3 == alpha_3, column] = row[column]
 
         #Some countries code not supported in geopandas
@@ -68,6 +68,7 @@ def process_series(data):
     res = pd.Series(y, index=x)
     return res
 
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
@@ -87,20 +88,22 @@ if __name__ == "__main__":
     with open('../analysis/correlations.json') as json_file:
         correlations = json.load(json_file)
 
-    #fig, (ax1, ax2, ax3, ax4) = pyplot.subplots(nrows=4, sharex=True, sharey=True)
-    fig, a = pyplot.subplots(nrows=4, ncols=2)
+    #1
+    fig1, a = pyplot.subplots(nrows=4, ncols=2)
     plot_map_json(correlations_basic[countries.get(country_code).alpha2]['twitter_smooth'], 'corr_twitter', a[0][1])
     #plot_map_json(correlations[countries.get(country_code).alpha2]['twitter_smooth'], 'corr_twitter_followers')
     plot_map_json(correlations[countries.get(country_code).alpha2]['who_conf_smooth'], 'corr_who_conf', a[1][1])
     plot_map_json(correlations[countries.get(country_code).alpha2]['who_rec_smooth'], 'corr_who_rec', a[2][1])
     plot_map_json(correlations[countries.get(country_code).alpha2]['who_deaths_smooth'], 'corr_who_deaths', a[3][1])
 
-    data = pd.read_csv("../analysis/to_visualize.csv", index_col=0, parse_dates=True)
+    data = pd.read_csv("../analysis/to_visualize.csv", index_col=0)
     data_basic = pd.read_csv("../analysis/to_visualize-basic.csv", index_col=0)
+
     series_list = ['twitter_raw', 'who_conf_smooth', 'who_rec_smooth', 'who_deaths_smooth']
     code = "PL"
     country_summary = data_basic.loc[code]
-    print(process_series(country_summary['twitter_raw']))
+    country_summary_foll = data.loc[code]
+
     for i, series in enumerate(series_list):
         a[i][0].plot(process_series(country_summary[series]))
         a[i][0].set_title(series)
@@ -110,21 +113,41 @@ if __name__ == "__main__":
         a[i][0].set_xticklabels([])
         a[i][1].set_xticklabels([])
 
+    fig1.suptitle('twitter_raw, who_conf, who_rec, who_death for %s' % code, fontsize=16)
+
+
+    #2
+    fig2, a = pyplot.subplots(nrows=2, ncols=2)
+    plot_map_json(correlations_basic[countries.get(country_code).alpha2]['twitter_smooth'], 'corr_twitter', a[0][1])
+    plot_map_json(correlations[countries.get(country_code).alpha2]['twitter_smooth'], 'corr_twitter_followers', a[1][1])
     #fig.tight_layout(pad=0)
 
+    a[0][0].plot(process_series(country_summary['twitter_raw']))
+    a[0][0].set_title('twitter_raw_basic')
+    a[0][0].tick_params(axis='x', labelrotation=60)
+    a[0][0].set_xticklabels([])
+
+    a[1][0].plot(process_series(country_summary_foll['twitter_raw']))
+    a[1][0].set_title('twitter_raw_followers')
+    a[1][0].tick_params(axis='x', labelrotation=60)
+
+    fig2.suptitle('twitter_raw_basic, twitter_raw_followers for %s' % code, fontsize=16)
     #print(country_summary['twitter_raw'])
     #plt.plot(process_series(country_summary['twitter_raw']))
-    """fig, (ax1, ax2) = pyplot.subplots(nrows=2, sharex=True, sharey=True)
-    plot_map_csv(data_basic, 'corr_twt_conf', ax1)
-    plot_map_csv(data, 'corr_twt_conf', ax2, 'followers')
 
-    fig, (ax1, ax2) = pyplot.subplots(nrows=2, sharex=True, sharey=True)
-    plot_map_csv(data_basic, 'corr_twt_deaths', ax1)
-    plot_map_csv(data, 'corr_twt_deaths', ax2, 'followers')
+    #3
+    fig3, a = pyplot.subplots(nrows=3, ncols=2)
+    plot_map_csv(data_basic, 'corr_twt_conf', a[0][0])
+    plot_map_csv(data, 'corr_twt_conf', a[0][1], 'followers')
 
-    fig, (ax1, ax2) = pyplot.subplots(nrows=2, sharex=True, sharey=True)
-    plot_map_csv(data_basic, 'corr_twt_rec', ax1)
-    plot_map_csv(data, 'corr_twt_rec', ax2, 'followers')
-    """
+    plot_map_csv(data_basic, 'corr_twt_deaths', a[1][0])
+    plot_map_csv(data, 'corr_twt_deaths', a[1][1], 'followers')
 
+    plot_map_csv(data_basic, 'corr_twt_rec', a[2][0])
+    plot_map_csv(data, 'corr_twt_rec', a[2][1], 'followers')
+
+    fig3.suptitle('basic and followers corr_twt_conf, corr_twt_deaths, corr_twt_rec for %s' % code, fontsize=16)
     plt.show()
+    fig1.savefig('output/fig1.png')
+    fig2.savefig('output/fig2.png')
+    fig3.savefig('output/fig3.png')
