@@ -2,13 +2,13 @@
 
 ## Installation
 ```bash
-$ pip install -r requirements.txt
+$ pip3 install -r requirements.txt
 ```
 
 ## Usage
 ```bash
 $ cd application/
-$ python visualize.py
+$ python3 visualize.py
 ```
 
 ### Flags
@@ -17,5 +17,5 @@ $ python visualize.py
 ### Examples
  ```bash
 $ cd application/
-$ python visualize.py --country USA
+$ python3 visualize.py --country USA
 ```
