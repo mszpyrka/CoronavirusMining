@@ -82,10 +82,10 @@ if __name__ == "__main__":
     #delta = args.delta
     #corr = args.corr
 
-    with open('../analysis/correlations-basic.json') as json_file:
+    with open('correlations-basic.json') as json_file:
         correlations_basic = json.load(json_file)
 
-    with open('../analysis/correlations.json') as json_file:
+    with open('correlations.json') as json_file:
         correlations = json.load(json_file)
 
     #1
@@ -96,8 +96,8 @@ if __name__ == "__main__":
     plot_map_json(correlations[countries.get(country_code).alpha2]['who_rec_smooth'], 'corr_who_rec', a[2][1])
     plot_map_json(correlations[countries.get(country_code).alpha2]['who_deaths_smooth'], 'corr_who_deaths', a[3][1])
 
-    data = pd.read_csv("../analysis/to_visualize.csv", index_col=0)
-    data_basic = pd.read_csv("../analysis/to_visualize-basic.csv", index_col=0)
+    data = pd.read_csv("to_visualize.csv", index_col=0)
+    data_basic = pd.read_csv("to_visualize-basic.csv", index_col=0)
 
     series_list = ['twitter_raw', 'who_conf_smooth', 'who_rec_smooth', 'who_deaths_smooth']
     code = countries.get(country_code).alpha2
@@ -148,6 +148,6 @@ if __name__ == "__main__":
 
     fig3.suptitle('basic and followers corr_twt_conf, corr_twt_deaths, corr_twt_rec', fontsize=16)
     plt.show()
-    fig1.savefig('output/fig1.png')
-    fig2.savefig('output/fig2.png')
-    fig3.savefig('output/fig3.png')
+    #fig1.savefig('output/fig1.png')
+    #fig2.savefig('output/fig2.png')
+    #fig3.savefig('output/fig3.png')
