@@ -1,0 +1,235 @@
+,continent,english_name,native_names,alpha_2
+0,europe,albania,"['shqipëria', 'republika e shqipërisë', 'republic of albania']",AL
+1,europe,andorra,"['andorra', ""principat d'andorra"", 'principality of andorra']",AD
+2,europe,austria,"['österreich', 'republik österreich', 'republic of austria']",AT
+3,europe,azerbaijan,"['azərbaycan', 'азәрбајҹан', 'آذربايجان', 'azərbaycan respublikası', 'азәрбајҹан республикаси', 'azerbaijani republic']",AZ
+4,europe,belarus,"['biełaruśбеларусь', 'respublika biełaruś', 'рэспублика беларусь', 'republic of belarus']",BY
+5,europe,belgium,"['belgië', 'belgique', 'belgien', 'koninkrijk belgië', 'royaume de belgique', 'königreich belgien', 'kingdom of belgium']",BE
+6,europe,bosnia and herzegovina,"['bosna i hercegovina', 'босна и херцеговина']",BA
+7,europe,bulgaria,"['българия', 'република българия', 'republic of bulgaria']",BG
+8,europe,croatia,"['hrvatska', 'republika hrvatska', 'republic of croatia']",HR
+9,europe,cyprus,"['κύπρος', 'κυπριακή δημοκρατία', 'kıbrıs', 'kıbrıs cumhuriyeti', 'republic of cyprus']",CY
+10,europe,czech republic,"['česko', 'česká republika']",CZ
+11,europe,denmark,"['danmark', 'kongeriget danmark', 'kingdom of denmark']",DK
+12,europe,estonia,"['eesti', 'eesti vabariik', 'republic of estonia']",EE
+13,europe,faroe islands,"['føroyar', 'færøerne']",FO
+14,europe,finland,"['suomi', 'suomen tasavalta', 'finland', 'republiken finland', 'republic of finland']",FI
+15,europe,france,"['france', 'république française', 'frantzia', 'frantziako errepublika', ""bro-c'hall"", ""republik c'hall"", 'frança', 'la república francesa', 'francia', 'republica francese', 'frança', 'la republica francesa', 'french republic']",FR
+16,europe,brittany,"['bretagne', 'breizh', 'bertaèyn']",FR
+17,europe,alsace,"['alsace', 'elsàss', 'elsass / elsaß']",
+18,europe,aquitaine,"['aquitaine', 'aquitània', 'akitania']",FR
+19,europe,languedoc-roussillon,"['languedoc-roussillon', 'lengadòc-rosselhon', 'llenguadoc-rosselló']",
+20,europe,provence,"['provence', 'provença / prouvènço']",FR
+21,europe,germany,"['deutschland', 'bundesrepublik deutschland', 'federal republic of germany']",DE
+22,europe,greece,"['ελλάδα', 'έλλας', 'ελληνική δημοκρατία', 'hellenic republic;', 'republic of greece']",GR
+23,europe,guernsey,"['guernsey', 'dgèrnésy', 'bailiwick of guernesey', 'bailliage de guernesey']",GG
+24,europe,hungary,['magyarország'],HU
+25,europe,iceland,"['ísland', 'lýðveldið ísland', 'republic of iceland']",IS
+26,europe,ireland,"['ireland', 'republic of ireland', 'éire', 'poblacht na héireann']",IE
+27,europe,isle of man,"['isle of man', 'mannin', 'ellan vannin']",IM
+28,europe,italy,"['italia', 'repubblica italiana', 'italian republic']",IT
+29,europe,jersey,"['jersey', 'bailiwick of jersey', 'jèrri', 'bailliage de jersey']",JE
+30,europe,latvia,"['latvija', 'latvijas republika', 'republic of latvia']",LV
+31,europe,liechtenstein,"['liechtenstein', 'fürstentum liechtenstein', 'principality of liechtenstein']",LI
+32,europe,lithuania,"['lietuva', 'lietuvos respublika', 'republic of lithuania']",LT
+33,europe,luxembourg,"['lëtzebuerg', 'grousherzogdem lëtzebuerg', 'luxembourg', 'grand-duché de luxembourg', 'luxemburg', 'großherzogtum luxemburg', 'grand duchy of luxembourg']",LU
+34,europe,macedonia,"['македонија', 'република', 'македонија', 'the republic of macedonia', 'поранешна југословенска република македонија', 'former yugoslav republic of macedonia']",MK
+35,europe,malta,"['malta', ""repubblika ta' malta"", 'republic of malta']",MT
+36,europe,moldova,"['moldova', 'молдова', 'republica moldovaрепублика', 'молдова', 'republic of moldova']",MD
+37,europe,monaco,"['monaco', 'principauté de monaco', 'principality of monaco']",MC
+38,europe,montenegro,['црна гора'],ME
+39,europe,"netherlands, holland","['nederland', 'koninkrijk der nederlanden', 'nederlân', 'keninkryk fan de nederlannen', 'kingdom of the netherlands']",NL
+40,europe,norway,"['norge', 'kongeriket norge', 'noreg', 'kongeriket noreg', 'kingdom of norway']",NO
+41,europe,poland,"['polska', 'rzeczpospolita polska', 'republic of poland']",PL
+42,europe,portugal,"['portugal', 'república portuguesa', 'portuguese republic']",PT
+43,europe,romania,['românia'],RO
+44,europe,russia,"['россия', 'российская', 'федерация', 'russian federation']",RU
+45,europe,san marino,"['san marino', 'serenissima repubblica di san marino', 'most serene republic of san marino']",SM
+46,europe,serbia,"['србија', 'република', 'србија', 'republic of serbia']",RS
+47,europe,slovakia,"['slovensko', 'slovenska republika', 'slovak republic']",SK
+48,europe,slovenia,"['slovenija', 'republika slovenija', 'republic of slovenia']",SI
+49,europe,spain,"['españa', 'reino de españa', 'espanya', ""reino d'espanya"", 'españa', ""reinu d'españa"", 'espainia', 'espainiako erresuma', 'espanya', ""regne d'espanya"", 'españa', 'reino de españa', 'espanha', ""reiaume d'espanha"", 'kingdom of spain']",ES
+50,europe,sweden,"['sverige', 'konungariket sverige', 'kingdom of sweden']",SE
+51,europe,switzerland,"['confoederatio helvetica', 'helvetic confederation', 'die schweiz', 'schweizerische eidgenossenschaft', 'suisse', 'confederation suisse', 'svizzera', 'confederazione svizzera', 'svizra', 'confederaziun svizra', 'swiss confederation']",CH
+52,europe,turkey,"['türkiye', 'türkiye cumhuriyeti', 'republic of turkey']",TR
+53,europe,united kingdom,"['united kingdom', 'united kingdom of great britain and northern ireland', 'teyrnas unedig', 'teyrnas unedig prydain fawr a gogledd iwerddon', 'an rywvaneth unys', 'an rywvaneth unys a vreten veur hag iwerdhon gledh', 'an rìoghachd aonaichte', 'rìoghachd aonaichte bhreatainn agus éirinn a tuath', 'ríocht aontaithe', 'ríocht aontaithe na breataine móire agus thuaisceart éireann', 'unitit kinrick', 'unitit kinrick o great breetain an northren ireland']",GB
+54,europe,england,"['england', 'sasainn', 'ingland', 'lloegr', 'inglond', 'sasana']",GB
+55,europe,scotland,"['alba', 'rìoghachd na h-alba', 'scotland', 'kinrick o scotland', 'scotland', 'kingdom of scotland', 'yr alban', 'teyrnas yr alban', 'alban', 'ruwvaneth alban', 'albain', 'ríocht na halban']",GB
+56,europe,wales,"['cymru', 'wales', 'kembra', ""a' chuimrigh"", 'an bhreatain bheag']",GB
+57,europe,cornwall,"['kernow', 'dugeth kernow', 'cornwall', 'duchy of cornwall', 'cernyw', 'dugiaeth cernyw', ""a' chòrn"", 'diùcachd na còirne', 'corn na breataine', 'diúcacht chorn na breataine']",GB
+58,europe,northern ireland,"['northern ireland', 'tuaisceart éireann', 'norlin airlann', 'éirinn a tuath', 'gogledd iwerddon']",GB
+59,europe,ukraine,"['україна - ukrainian', 'украина - russian']",UA
+60,europe,vatican city,"['vaticanum', 'status civitatis vaticanae', 'state of vatican city']",VA
+61,south-america,argentina,"['argentina', 'república argentina', 'argentine republic']",AR
+62,south-america,bolivia,"['bolivia', 'república de bolivia', 'republic of bolivia']",BO
+63,south-america,brazil,"['brasil', 'república federativa do brasil', 'federal republic of brazil']",BR
+64,south-america,chile,"['chile', 'república de chile', 'republic of chile']",CL
+65,south-america,colombia,"['colombia', 'república de colombia', 'republic of colombia']",CO
+66,south-america,ecuador,"['ecuador', 'república del ecuador', 'republic of ecuador']",EC
+67,south-america,french guiana,"['guyane', 'department of guiana']",GF
+68,south-america,guyana,"['guyana', 'co-operative republic of guyana']",GY
+69,south-america,paraguay,"['paraguay', 'paraguái', 'república del paraguay', 'tetã paraguáipe', 'republic of paraguay']",PY
+70,south-america,peru,"['perú', 'república del perú', 'republic of peru']",PE
+71,south-america,suriname,"['suriname', 'republiek suriname', 'republic of suriname']",SR
+72,south-america,uruguay,"['uruguay', 'república oriental del uruguay', 'oriental republic of uruguay']",UY
+73,south-america,venezuela,"['venezuela', 'república bolivariana de venezuela', 'bolivarian republic of venezuela']",VE
+74,north-america,canada,"['canada', 'ᑲᓇᑕ - inuktitut']",CA
+75,north-america,greenland,"['grønland', 'kalaallit nunaat', 'self-governing territory of greenland']",GL
+76,north-america,mexico,"['méxico', 'anahuac', 'mexihco', 'estados unidos mexicanos', 'united mexican states']",MX
+77,north-america,usa,"['usa', 'ꭰꮊꭲ', 'united states of america', 'wááshindoon bikéyah ałhidadiidzooígíí', 'ꭴᏼꮲꭲ-ꭰꮊꮅꭶ ꮩᏹꮧꮲ ꭶꮪꮂ', '- cherokee', 'ᑭᐦᒋ ᒨᐦᑯᒫᓇᐢᑭᕀ', '- cree', ""'amelika-hui-pu-'ia"", 'estados unidos de américa', ""états-unis d'amérique"", 'פֿאַראײניקטע', 'שטאַטן פֿון', 'אַמעריקע', '- yiddish']",US
+78,north-america,belize,['belize'],BZ
+79,north-america,costa rica,"['costa rica', 'república de costa rica', 'republic of costa rica']",CR
+80,north-america,el salvador,"['el salvador', 'república de el salvador', 'republic of el salvador']",SV
+81,north-america,guatemala,"['guatemala', 'república de guatemala', 'republic of guatemala']",GT
+82,north-america,honduras,"['honduras', 'república de honduras', 'republic of honduras']",HN
+83,north-america,nicaragua,"['nicaragua', 'república de nicaragua', 'republic of nicaragua']",NI
+84,north-america,panama,"['panamá', 'república de panamá', 'republic of panama']",PA
+85,north-america,antigua and barbuda,['antigua and barbuda'],AG
+86,north-america,the bahamas,"['the bahamas', 'commonwealth of the bahamas']",BS
+87,north-america,barbados,['barbados'],BB
+88,north-america,dominica,"['dominica', 'commonwealth of dominica']",DM
+89,north-america,dominican republic,"['república dominicana', 'dominican republic']",DO
+90,north-america,cuba,"['cuba', 'república de cuba', 'republic of cuba']",CU
+91,north-america,grenada,"['grenada', 'state of grenada']",GD
+92,north-america,haiti,"['haïti', 'ayiti', ""république d'haïti"", 'repiblik dayiti', 'republic of haiti']",HT
+93,north-america,jamaica,['jamaica'],JM
+94,north-america,saint kitts and nevis,"['saint kitts and nevis', 'federation of saint kitts and nevis']",KN
+95,north-america,saint lucia,['saint lucia'],LC
+96,north-america,saint vincent and the grenadines,['saint vincent and the grenadines'],VC
+97,north-america,trinidad and tobago,"['trinidad and tobago', 'republic of trinidad and tobago']",TT
+98,oceania,australia,"['australia', 'commonwealth of australia']",AU
+99,oceania,fiji,"['viti', 'matanitu tu-vaka-i-koya ko viti', 'republic of the fiji islands']",FJ
+100,oceania,kiribati,"['kiribati', 'ribaberikin kiribati', 'republic of kiribati']",KI
+101,oceania,marshall islands,"['marshall islands', 'aelōn̄ in m̧ajeļ', 'republic of the marshall islands', 'aolepān aorōkin m̧ajeļ']",MH
+102,oceania,micronesia,['federated states of micronesia'],FM
+103,oceania,nauru,"['naoero', 'nauru', 'repubrikin naoero', 'republic of nauru']",NR
+104,oceania,new zealand,"['new zealand', 'aotearoa', 'land of the long white cloud']",NZ
+105,oceania,palau,"['palau', 'belau', ""belu'u era belau"", 'republic of palau']",PW
+106,oceania,papua new guinea,"['papua new guinea', 'papua niugini']",PG
+107,oceania,samoa,"['samoa', 'independent state of samoa', ""malo sa'oloto tuto'atasi o samoa""]",WS
+108,oceania,solomon islands,['solomon islands'],SB
+109,oceania,tonga,"['tonga', ""pule'anga fakatu'i 'o tonga"", 'kingdom of tonga']",TO
+110,oceania,tuvalu,['tuvalu'],TV
+111,oceania,vanuatu,"['vanuatu', 'ripablik blong vanuatu', 'republic of vanuatu', 'république du vanuatu']",VU
+112,asia,afghanistan,"['افغانستان', '- pashto', 'افغانستان', '- dari', 'د افغانستان اسلامی جمهوريت', 'جمهوری اسلامی افغانستان', 'islamic republic of afghanistan']",AF
+113,asia,armenia,"['հայաստան', 'հայաստանի հանրապետություն', 'republic of armenia']",AM
+114,asia,azerbaijan,"['azərbaycan', 'азәрбајҹан', 'آذربايجان', 'azərbaycan respublikası', 'азәрбајҹан республикаси', 'azerbaijani republic']",AZ
+115,asia,bahrain,"['البحرين', 'مملكة البحرين', 'the kingdom of bahrain']",BH
+116,asia,bangladesh,"['বাংলাদেশ', 'গণপ্রজাতন্ত্রী বাংলাদেশ', ""people's republic of bangladesh""]",BD
+117,asia,bhutan,"['འབྲུག་ཡུལ།', 'kingdom of bhutan']",BT
+118,asia,brunei darussalam,"['بروني دارالسلام', 'brunei darussalam', 'نڬارا بروني دارالسلام', 'negara brunei darussalam', 'state of brunei darussalam']",BN
+119,asia,burma / myanmar,"['မြန်မာ', 'ဗမာ', 'ပြည်ထောင်စု သမ္မတ မြန်မာနိုင်ငံတော်\u200c', 'republic of the union of myanmarr']",MM
+120,asia,cambodia,"['កម្ពុជា', 'ព្រះរាជាណាចក្រកម្ពុជា', 'kingdom of cambodia']",KH
+121,asia,china,"['中国', '中华人民共和国', ""people's republic of china""]",CN
+122,asia,hong kong,"['香港', '香港特別行政區', '(hèunggóng dahkbihit hàhngjingkèui', 'xiānggǎng tèbié xíngzhèngqū)', 'hong kong special administrative region']",HK
+123,asia,macau,"['澳門', '(ngoumún,', 'àomén)', 'macau', '澳門特別行政區', '(ngoumún dahkbihit hàhngjingkèui', 'àomén tèbié xíngzhèngqū)', 'região administrativa especial de macau', 'macau special administrative region']",MO
+124,asia,east timor,"[""timór lorosa'e"", 'timor-leste', ""repúblika demokrátika timór lorosa'e"", 'república democrática de timor-leste', 'democratic republic of timor-leste']",TL
+125,asia,georgia,"['საქართველო', 'საქართველოს რესპუბლიკა', 'republic of georgia']",GE
+126,asia,india,"['ভাৰত', 'ভাৰত গণৰাজ্য']",IN
+127,asia,india,"['ভারত', 'ভারতীয় প্রজাতন্ত্র']",IN
+128,asia,india,"['ભારત', 'ભારતીય ગણરાજ્ય']",IN
+129,asia,india,"['भारत', 'भारत गणराज्य']",IN
+130,asia,india,"['ಭಾರತ', 'ಭಾರತ ಗಣರಾಜ್ಯ']",IN
+131,asia,india,"['ഭാരതം', 'ഭാരത ഗണരാജ്യം']",IN
+132,asia,india,"['भारत', 'भारत प्रजासत्ताक']",IN
+133,asia,india,"['ଭାରତ', 'ଭାରତ ଗଣରାଜ୍ୟ']",IN
+134,asia,india,"['ਭਾਰਤ', 'ਭਾਰਤ ਗਣਰਾਜ']",IN
+135,asia,india,"['भारतम्', 'भारतमहाराज्यम्']",IN
+136,asia,india,['ڀارت'],IN
+137,asia,india,"['இந்தியா', 'இந்தியக் குடியரசு']",IN
+138,asia,india,"['భారత', 'భారత గణ రాజ్యము']",IN
+139,asia,indonesia,"['indonesia', 'republik indonesia', 'republic of indonesia']",ID
+140,asia,iran,"['ايران', 'جمهورى اسلامى ايران', 'islamic republic of iran']",IR
+141,asia,iraq,"['العراق', 'جمهورية العراق', 'republic of iraq']",IQ
+142,asia,israel,"['ישׂראל', 'إسرائيل', 'מדינת ישראל', 'دولة إسرائيل', 'state of israel']",IL
+143,asia,japan,"['日本', '日本国']",JP
+144,asia,jordan,"['الأردن', 'المملكة الأردنية الهاشمية', 'hashemite kingdom of jordan']",JO
+145,asia,kazakhstan,"['қазақстан', 'қазақстан республикасы', 'republic of kazakhstan']",KZ
+146,asia,korea,"['조선', '조선 민주주의 인민 공화국', ""democratic people's republic of korea""]",KP
+147,asia,korea,"['한국', '대한민국', 'republic of korea']",KP
+148,asia,kuwait,"['الكويت', 'دولة الكويت', 'state of kuwait']",KW
+149,asia,kyrgyzstan,"['кыргызстан', 'кыргызстан республикасы', 'kyrgyz republic']",KG
+150,asia,laos,"['ລາວ', 'ສາທາລະນະລັດ ປະຊາທິປະໄຕ ປະຊາຊົນ ລາວ', ""lao people's democratic republic""]",LA
+151,asia,lebannon,"['لبنان', 'الجمهوريّة اللبنانية', 'lebanese republic']",LB
+152,asia,maldives,"['ދިވެހި', 'ދިވެހި ޖުމްހުރިޔަ', 'maldive republic']",MV
+153,asia,malaysia,"['malaysia', 'مليسيا', 'persekutuan tanah malaysia', 'ڤرسكوتوان تانه مليسيا', 'federation of malaysia']",MY
+154,asia,mongolia,"['монгол улс', 'ᠮᠤᠩᠭᠤᠯ ᠤᠯᠤᠰ']",MN
+155,asia,nepal,"['नेपाल', 'सङ्घीय लोकतान्त्रिक गणतन्त्र नेपा', 'federal democratic republic of nepal']",NP
+156,asia,oman,"['عمان', 'سلطنة عمان', 'sultanate of oman']",OM
+157,asia,pakistan,"['پاکستان', 'سلامی جمهرويت پاکستان', 'islamic republic of pakistan']",PK
+158,asia,palestine,"['فلسطين', 'دولة فلسطين', 'state of palestine']",PS
+159,asia,philippines,"['pilipinas', 'philippines', 'republika ng pilipinas', 'republic of the philippines', 'republic of the philippines']",PH
+160,asia,qatar,"['قطر', 'دولة قطر', 'state of qatar']",QA
+161,asia,"republic of china, taipei","['臺灣', '中華民國', 'republic of china']",CN
+162,asia,russia,"['россия', 'российская федерация', 'russian federation']",RU
+163,asia,saudi arabia,"['السعودية', 'المملكة العربية السعودية', 'kingdom of saudi arabia']",SA
+164,asia,singapore,"['新加坡', '新加坡共和国', 'republic of singapore']",SG
+165,asia,singapore,"['singapura', 'republik singapura', 'republic of singapore']",SG
+166,asia,singapore,"['சிங்கப்பூர்', 'சிங்கப்பூர் குடியரசு', 'republic of singapore']",SG
+167,asia,sri lanka,"['ශ්රී ලංකා', 'ශ්රී ලංකා ප්රජාතාන්ත්රික සමාජවාදී ජනරජය', 'democratic socialist republic of sri lanka']",LK
+168,asia,sri lanka,"['இலங்கை', 'இலங்கை ஜனநாயக சோஷலிசக் குடியரசு', 'democratic socialist republic of sri lanka']",LK
+169,asia,syria,"['سورية', 'الجمهورية العربية السورية', 'al-ǧumhūrīyâ al-ʿarabīyâ as-sūrīyâ', 'syrian arab republic']",SY
+170,asia,tajikistan,"['тоҷикистон', 'ҷумҳурии тоҷикистон', 'republic of tajikistan']",TJ
+171,asia,thailand,"['ประเทศไทย', 'ราชอาณาจักรไทย', 'kingdom of thailand']",TH
+172,asia,timor-leste,"['timor-leste', ""timor lorosa'e"", ""repúblika demokrátika timor lorosa'e"", 'república democrática de timor-leste', 'democratic republic of timor-leste']",TL
+173,asia,turkey,"['türkiye', 'türkiye cumhuriyeti', 'republic of turkey']",TR
+174,asia,turkmenistan,['туркменистан'],TM
+175,asia,uae,"['الامارات', 'دولة الإمارات العربية المتحدة', 'united arab emirates']",AE
+176,asia,uzbekistan,"['ўзбекистон', ""o'zbekiston"", 'ўзбекистон республикасй', ""o'zbekiston respublikasi"", 'republic of uzbekistan']",UZ
+177,asia,vietnam,"['việt nam', 'cộng hoà xã hội chủ nghĩa việt nam', 'socialist republic of vietnam']",VN
+178,asia,yemen,"['اليمن', 'الجمهوريّة اليمنية', 'republic of yemen']",YE
+179,africa,algeria,"['الجزائر', 'الجمهوريّة', 'الجزائريّة', 'الديمقراطيّة', 'الشعبيّة', ""(al-jumhūrīyâtt al-jazā'irīyât ad-dīmuqrāṭīyâ"", 'aš-šaʿbīyâ)', 'democratic and popular republic of algeria']",DZ
+180,africa,angola,"['angola', 'república de angola', 'republic of angola']",AO
+181,africa,benin,"['bénin', 'république du bénin', 'republic of benin']",BJ
+182,africa,botswana,"['botswana', 'lefatshe la botswana', 'republic of botswana']",BW
+183,africa,burkina faso,['burkina faso'],BF
+184,africa,burundi,"['uburundi', 'burundi', ""republika y'uburundi"", 'république du burundi', 'republic of burundi']",BI
+185,africa,cameroon,"['cameroun', 'cameroon', 'république du cameroun', 'republic of cameroon']",CM
+186,africa,chad,"['tchad', 'تشاد', 'république du tchad', 'جمهوريّة', 'تشاد', 'republic of chad']",TD
+187,africa,cape verde,"['cabo verde', 'república de cabo verde', 'republic of cape verde']",CV
+188,africa,central african republic,"['centrafrique', 'bê-afrîka', 'république centrafricaine', 'ködrö tî bê-afrîka']",CF
+189,africa,comoros,"['comores', 'komori', 'القمر', 'union des comores', 'udzima wa komori', 'اتحاد القمر', 'union of the comoros']",KM
+190,africa,congo,"['république démocratique du congo', 'democratic republic of the congo']",CG
+191,africa,congo,"['république du congo', 'republic of the congo']",CG
+192,africa,côte d'ivoire,"[""côte d'ivoire"", ""république de côte d'ivoire"", ""republic of côte d'ivoire""]",CI
+193,africa,djibouti,"['جيبوتي', 'djibouti', 'جمهوريّة', 'جيبوتي', 'république de djibouti', 'republic of djibouti']",DJ
+194,africa,egypt,"['مصر', 'جمهوريّة', 'مصر العربيّة', 'arabic republic of egypt']",EG
+195,africa,equatorial guinea,"['guinea ecuatorial, guinée équatoriale', 'república de guinea ecuatorial', 'république de guinée équatoriale', 'republic of equatorial guinea']",GQ
+196,africa,eritrea,"['ኤርትራ', 'إريتريا', 'ሃግሬ ኤርትራ', 'دولة إريتريا', 'state of eritrea']",ER
+197,africa,ethiopia,"['ኢትዮጵያ', 'የኢትዮጵያ ፌዴራላዊ ዲሞክራሲያዊ', 'ሪፐብሊ', 'federal democratic republic of ethiopia']",ET
+198,africa,gabon,"['le gabon', 'république gabonaise', 'gabonese republic']",GA
+199,africa,the gambia,"['the gambia', 'republic of the gambia']",GM
+200,africa,ghana,"['ghana', 'republic of ghana']",GH
+201,africa,guinea,"['guinée', 'république de guinée', 'republic of guinea']",GN
+202,africa,guinea-bissau,"['guiné-bissau', 'república da guiné-bissau', 'republic of guinea-bissau']",GW
+203,africa,kenya,"['kenya', 'republic of kenya', 'jamhuri ya kenya']",KE
+204,africa,libya,"['ليبيا', 'الجماهيريّة', 'العربيّة', 'الليبيّة', 'الشعبيّة', 'الاشتراكيّة', 'العظمى', '(al-jamāhīrīyâ al-ʿarabīyâ al-lībīyâ', 'aš-šaʿbīyâ al-ištirākīyâ)', ""socialist people's libyan arab jamahiriya""]",LY
+205,africa,lesotho,"['lesotho', 'kingdom of lesotho', 'mmuso wa lesotho']",LS
+206,africa,liberia,"['liberia', 'republic of liberia']",LR
+207,africa,madagascar,"['madagasikara, madagascar', ""repoblikan'i madagasikara"", 'république de madagascar', 'republic of madagascar']",MG
+208,africa,malawi,"['malawi', 'malaŵi', 'republic of malawi', 'mfuko la malaŵi', 'republic of malawi']",MW
+209,africa,mali,"['mali', 'république du mali', 'republic of mali']",ML
+210,africa,mauritania,"['موريتانيا', 'الجمهوريّة', 'الإسلاميّة', 'الموريتانيّة', 'islamic republic of mauritania']",MR
+211,africa,mauritius,"['mauritius', 'maurice', 'republic of mauritius', 'république de maurice']",MU
+212,africa,morocco,"['المغرب', 'المملكة المغربيّة', 'kingdom of morocco']",MA
+213,africa,mozambique,"['moçambique', 'república de moçambique', 'republic of mozambique']",MZ
+214,africa,namibia,"['namibia', 'republic of namibia']",NA
+215,africa,niger,"['niger', 'république du niger', 'republic of niger']",NG
+216,africa,nigeria,"['nigeria', 'federal republic of nigeria']",NG
+217,africa,rwanda,"['rwanda', ""repubulika y'u rwanda"", 'république rwandaise', 'republic of rwanda']",RW
+218,africa,sao tome and principe,"['são tomé e príncipe', 'república democrática de são tomé e príncipe', 'democratic republic of sao tome and principe']",ST
+219,africa,senegal,"['senegal', 'sénégal', 'sounougal', 'république du sénégal', 'republic of senegal']",SN
+220,africa,seychelles,"['sesel', 'seychelles', 'repiblik sesel', 'republic of seychelles', 'république des seychelles', 'republic of seychelles']",SC
+221,africa,sierra leone,"['sierra leone', 'republic of sierra leone']",SL
+222,africa,somalia,"['soomaaliya', 'jamhuuriyad-da dimoqradddiya soomaaliya', 'republic of somalia']",SO
+223,africa,south africa,"['republiek van suid-afrika', 'republic of south africa', 'rephaboliki ya afrika-borwa', 'iriphabliki yesewula afrika', 'rephaboliki ya afrika borwa', 'iriphabhulikhi yeningizimu afrika', 'riphabliki ra afrika dzonga', 'rephaboliki ya aforika borwa', 'riphabuḽiki ya afurika tshipembe', 'iriphabliki yasemzantsi afrika', 'iriphabliki yaseningizimu afrika']",ZA
+224,africa,south sudan,['federal democratic republic of south sudan'],SS
+225,africa,sudan,"['السودان', 'جمهوريّة', 'السودان', 'republic of sudan']",SD
+226,africa,swaziland,"['swaziland', 'eswatini', 'kangwane', 'umbuso weswatini', 'umbuso wakangwane', 'kingdom of swaziland']",SZ
+227,africa,tanzania,"['tanzania', 'jamhuri ya muungano wa tanzania', 'united republic of tanzania']",TZ
+228,africa,togo,"['togo', 'république togolaise', 'togolese republic']",TG
+229,africa,tunisia,"['تونس', 'الجمهوريّة', 'التونسيّة', 'tunisian republic']",TN
+230,africa,uganda,"['uganda', 'jamhuri ya uganda', 'republic of uganda']",UG
+231,africa,western sahara,"['الصحراء', 'العربيّة', 'الجمهوريّة', 'العربيّة الصحراويّة', 'الديمقراطيّة', '(al-jumhūrīyâtu al-ʿarabīyâtu aṣ-ṣaḥrāwīyâtu', 'ad-dīmuqrāṭīyâ)', 'democratic sahrawi arab republic']",EH
+232,africa,zambia,"['zambia', 'republic of zambia']",ZM
+233,africa,zimbabwe,"['zimbabwe', 'republic of zimbabwe']",ZW
